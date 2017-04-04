@@ -1,0 +1,27 @@
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS saved_food;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id BIGSERIAL PRIMARY KEY,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  gender VARCHAR(10) NOT NULL,
+  weight INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  age INTEGER NOT NULL,
+  password_digest VARCHAR(255) NOT NUll
+);
+
+CREATE TABLE saved_food (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  picture VARCHAR(255),
+  calories INTEGER NOT NULL,
+  amount INTEGER NOT NULL,
+  serving_qty INTEGER NOT NULL,
+  serving_unit VARCHAR(255) NOT NULL
+);
+
+COMMIT;
